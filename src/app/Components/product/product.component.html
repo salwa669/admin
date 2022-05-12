@@ -1,0 +1,60 @@
+<div style="text-align:center;">Content</div>
+<!-- Interpolation -->
+<!-- Property Binding -->
+<!-- Structural Directives -->
+
+<button mat-raised-button color="warn"
+     style="margin-top: 2%; margin: left 1%;" (click)="OpenDialoge()">Add New Product</button>
+
+<div class="container-fluid">
+
+    <table class="table bg-dark text-light table my-3">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+                <th scope="col">Image</th>
+                <th scope="col">CategoryID</th>
+                <th scope="col">Details</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let item of prdList ; let i =index">
+
+                <tr appProductCard *ngIf="item.quantity !=0" [class.bg-warning]="item.quantity==1">
+                    <td>{{i+1}}</td>
+                    <td>{{item.name}}</td>
+                    <td *ngIf="item.quantity !=0" [class.bg-warning]="item.quantity==1">
+                        {{item.quantity}}
+                    </td>
+                    <td>{{item.price}}</td>
+                    <td><img src="http://localhost:47711/Resources/Images/{{item.image}}"
+                        width="100" height="100" alt="{{item.name}}"></td>
+
+                    <td>{{item.categoryId}}</td>
+
+                 
+
+                    <td>
+                        <a name="" id="" class="btn btn-primary" 
+                          (click)="OpenProductDetails(item.id)"  role="details">Details</a>
+                    </td>
+                    <td>
+                        <a name="" id="" class="btn btn-success" 
+                           (click)="OpenDialogeEdit(item)" role="edit">Edit</a>
+                    </td>
+                    <td>
+                        <a name="" id="" class="btn btn-danger" 
+                        (click)="confirmDialog(item.id)" role="details">Delete</a>
+                    </td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+
+</div>

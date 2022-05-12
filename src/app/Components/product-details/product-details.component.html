@@ -1,0 +1,17 @@
+<div class="container ">
+    <div class="row row-cols-4 p-4  m-4  " >
+      <div class="col p-2  text" style="width: 280px;"  >
+        <img src="http://localhost:47711/Resources/Images/{{prd.image}}" alt="{{prd.name}}" 
+        class="card-img-top" >
+        <div class="card-body">
+          <h3 class="card-title text-center">{{prd.name}}</h3>
+          <p class="card-text">
+            <span class="p-2">Quantity : {{prd.quantity}}</span><br> 
+            <span class="p-2">Price: {{prd.price| currency: 'EGP'}}</span> 
+          </p>         
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  <button mat-raised-button (click)="close()">Close</button>

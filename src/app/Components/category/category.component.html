@@ -1,0 +1,48 @@
+
+
+
+<button mat-raised-button color="warn"
+style="margin-top: 2%; margin: left 1%;" (click)="OpenDialoge()">Add New Category</button>
+
+
+<div class="container-fluid">
+
+    
+    <table class="table bg-dark text-light table my-3">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Details</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+       
+              
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let item of catList ; let i =index">
+                <tr>
+                    <td>{{i+1}}</td>
+                    <td>{{item.name}}</td>                                 
+                    <td>
+                        <a name="" id="" class="btn btn-primary" 
+                          role="details">Details</a>
+                    </td>
+                    <td>
+                        <a name="" id="" class="btn btn-success" 
+                         role="details">Edit</a>
+                    </td>
+                    <td>
+                        <a name="" id="" class="btn btn-danger" 
+                        (click)="confirmDialog(item.id)" role="details">Delete</a>
+                    </td>
+
+
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+   
+      </div>
+

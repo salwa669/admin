@@ -1,0 +1,44 @@
+<h1 mat-dialog-title>Add New Product</h1>
+<div mat-dialog-content>
+
+    <form [formGroup]="productForm">
+      <!-- <mat-form-field appearance="outline">
+        <mat-label>No.</mat-label>
+        <input formControlName ="productId" matInput placeholder="No.">
+      </mat-form-field> -->
+
+    <mat-form-field appearance="outline">
+        <mat-label>Product Name</mat-label>
+        <input formControlName ="name" matInput placeholder="Name"
+        [(ngModel)]="product.name">
+      </mat-form-field>
+
+ 
+     
+
+      
+      <mat-form-field appearance="outline">
+        <mat-label>Price</mat-label>
+        <input formControlName ="price"  [(ngModel)]="product.price" matInput type="number" placeholder="Price">
+      </mat-form-field>
+  
+     
+      <mat-form-field appearance="outline">
+        <mat-label>Quantity</mat-label>
+        <input formControlName ="quantity" [(ngModel)]="product.quantity"  matInput type="number" placeholder="Quantity">
+      </mat-form-field>
+
+    </form>
+
+
+    <div class="row" style="margin-bottom:15px;">
+      <div class="col-md-3 w-100">
+        <input type="file" #file placeholder="Choose file" [(ngModel)]="product.image" (change)="uploadFile(file.files,file.value)">
+      
+   </div>
+
+<div mat-dialog-action [align] = "'end'">
+  <button mat-raised-button color="warn" id="cancel" mat-dialog-close>Close</button>
+  <button style="margin-left :8px;" mat-raised-button color="primary" (click)="editProduct()" >Save</button>
+
+</div>
